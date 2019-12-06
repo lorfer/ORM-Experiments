@@ -1,0 +1,12 @@
+tbl_id;nombre
+1;Cliente
+2;Reserva
+3;mesa
+4;orden
+5;menu
+6;factura
+7;empleado
+8;CuentasDiarias
+9;Compra
+10;producto
+11;existencia
