@@ -9,14 +9,8 @@ using namespace std;
 
 SysEntity::SysEntity(string nombreTabla)
 {
-	if (TableExist(nombreTabla))
-	{
-		LoadColumns();
-		//LoadForeignKeys();
-		LoadPKey();
-	};
 	
-
+	runAll(nombreTabla);
 }
 
 SysEntity::SysEntity()
@@ -33,17 +27,7 @@ bool SysEntity::TableExist(string nameTable)
 	getline(reads, temp);
 	ifstream subLector(temp);//read actual line 
 	vector<string> all;
-	/*
-	Old
-	while (reads)
-	{
-
-		reads >> temp;
-		all.push_back(temp);
-		auxiliar += temp;
-		
-	}
-	all = getSplit(auxiliar, ';');*/
+	
 	while (reads)
 	{	
 		reads >> temp;
@@ -56,12 +40,13 @@ bool SysEntity::TableExist(string nameTable)
 	{
 		if (all[i] == nameTable)
 		{
-			//save In memory the table ID
-			TBL_ID_CONST =  i+1;
+			//save In memory the entity ID
+			this->TBL_ID_CONST =  i+1;
+			//save in memory  the entity name
+			this->mv_tbl_name = nameTable;
 			return true;
 		}
 	} 
-
 	return false;
 }
 
@@ -72,10 +57,15 @@ SysEntity::~SysEntity()
 //TODO:Implement the save
 bool SysEntity::Alta(vector<string> p_data)
 {
+	if (p_data.size() == ObjAllCols.size())
+	{
+
+	}
+	
 	
 	
 	return false;
-}
+ }
 //TODO:Implement the Delete
 bool SysEntity::Baja(int p_pk_val)
 {
@@ -89,9 +79,7 @@ vector<string> SysEntity::Buscar(string p_temp)
 	return vector<string>();
 }
 
-
-
-//TODO:Loader PrimaryKey
+//TODO:Loader PrimaryKey Completed
 void SysEntity::LoadPKey()
 {
 	ifstream reader("..\\ORM-Experiments\\Sys\\SysPrimaryKey.csv");
@@ -167,10 +155,19 @@ void SysEntity::LoadColumns()
 
 			ObjAllCols.push_back(cols);
 		}
-		//break;
 	}
 
 	subLector.close();
+}
+
+void SysEntity::runAll(string p_tbl_name)
+{
+	if (TableExist(p_tbl_name))
+	{
+		LoadColumns();
+		//LoadForeignKeys();
+		LoadPKey();
+	};
 }
 
 //TODO: [Ójo]

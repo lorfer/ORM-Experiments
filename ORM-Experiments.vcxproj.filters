@@ -13,19 +13,28 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Restaurantes">
+      <UniqueIdentifier>{6f0e6b34-fefc-49b7-9311-294f369cfb12}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HEADDER\SysColumn.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="HEADDER\SysEntity.cpp">
+    <ClCompile Include="HEADDER\SysPrimaryKey.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="HEADDER\SysForeignKey.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="HEADDER\SysPrimaryKey.cpp">
+    <ClCompile Include="HEADDER\SysEntity.cpp">
       <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="HEADDER\SysColumn.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ORM-Experiments.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Cliente.cpp">
+      <Filter>Restaurantes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="HEADDER\SysPrimaryKey.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Cliente.h">
+      <Filter>Restaurantes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

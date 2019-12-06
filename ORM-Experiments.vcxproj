@@ -19,12 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cliente.cpp" />
     <ClCompile Include="HEADDER\SysColumn.cpp" />
     <ClCompile Include="HEADDER\SysEntity.cpp" />
     <ClCompile Include="HEADDER\SysForeignKey.cpp" />
     <ClCompile Include="HEADDER\SysPrimaryKey.cpp" />
+    <ClCompile Include="ORM-Experiments.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cliente.h" />
     <ClInclude Include="HEADDER\SysColumn.h" />
     <ClInclude Include="HEADDER\SysEntity.h" />
     <ClInclude Include="HEADDER\SysForeignKey.h" />

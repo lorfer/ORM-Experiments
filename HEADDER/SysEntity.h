@@ -42,7 +42,7 @@ private:
 	SysPrimaryKey objPk;
 	//Error
 	string mv_action_Msj;
-	
+	void runAll(string tableName);
 	void LoadForeignKeys();
 	void LoadColumns();
 	void LoadPKey();
