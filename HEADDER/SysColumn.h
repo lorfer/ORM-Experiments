@@ -15,8 +15,8 @@ public:
 	void SetColumnName(string col_name);
 	string GetDataType();
 	void SetDataType(string DataType);
-	void SetLength(string length);
-	string GetLength();
+	void SetLength(int length);
+	int GetLength();
 	bool setRequerido(char requerido);
 	char GetRequerido();
 	
@@ -24,9 +24,9 @@ public:
 private:
 	int mv_col_ID;
 	int mv_tbl_ID;
-	short int mv_col_orden;
+	/*short int mv_col_orden;*/
 	string mv_col_name;
 	string mv_col_Tipo;
-	string mv_col_length;
+	int mv_col_length;
 	char mv_ind_require;
 };

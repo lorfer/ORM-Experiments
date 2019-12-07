@@ -46,12 +46,12 @@ void Syscolumn::SetDataType(string DataType)
 	this->mv_col_Tipo = DataType;
 }
 
-void Syscolumn::SetLength(string length)
+void Syscolumn::SetLength(int length)
 {
 	this->mv_col_length = length;
 }
 
-string Syscolumn::GetLength()
+int Syscolumn::GetLength()
 {
 	return mv_col_length;
 }

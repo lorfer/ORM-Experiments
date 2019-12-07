@@ -36,12 +36,13 @@ bool SysEntity::TableExist(string nameTable)
 		all.push_back(aux[1]);
 		//cout << temp << endl;
 	}
-	for (int i = 0; i < all.capacity(); i++)
+	for (int i = 0; i < all.capacity();++i)
 	{
 		if (all[i] == nameTable)
 		{
 			//save In memory the entity ID
-			this->TBL_ID_CONST =  i+1;
+			//TODO:CAMBIE +1
+			this->mv_tbl_ID =  i+1;
 			//save in memory  the entity name
 			this->mv_tbl_name = nameTable;
 			return true;
@@ -57,13 +58,18 @@ SysEntity::~SysEntity()
 //TODO:Implement the save
 bool SysEntity::Alta(vector<string> p_data)
 {
-	if (p_data.size() == ObjAllCols.size())
+	
+	for (size_t i = 0; i < p_data.size(); i++)
 	{
-
+		int in =  (int)"1";
+		stoi(p_data[i]);
+		if (p_data[i].size() > ObjAllCols[i].GetLength()) { 
+			cout << "Invalido!"; 
+			return false; 
+		}
+		
+		 
 	}
-	
-	
-	
 	return false;
  }
 //TODO:Implement the Delete
@@ -97,7 +103,7 @@ void SysEntity::LoadPKey()
 		
 		objPk.setTbl_ID(stoi(aux[1]));
 
-		if (this->TBL_ID_CONST == objPk.getTbl_ID())
+		if (this->mv_tbl_ID == objPk.getTbl_ID())
 		{
 			objPk.setPK_ID(stoi(aux[0]));
 			objPk.setCol_ID(stoi(aux[2]));
@@ -147,15 +153,17 @@ void SysEntity::LoadColumns()
 		cols.setColumnID(stoi(aux[1]));
 		cols.SetColumnName(aux[2]);
 		cols.SetDataType(aux[3]);
-		cols.SetLength(aux[4]);
+		cols.SetLength(stoi(aux[4]));
 		cols.setRequerido(stoi(aux[5]) == 1);
 
-		if (this->TBL_ID_CONST == cols.GetTblID() )
+		if (this->mv_tbl_ID == cols.GetTblID() )
 		{
-
+			
 			ObjAllCols.push_back(cols);
+			
 		}
 	}
+	ObjAllCols.pop_back();
 
 	subLector.close();
 }
